@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 22, 2023 at 06:35 PM
--- Server version: 8.0.30
--- PHP Version: 8.1.2
+-- Waktu pembuatan: 25 Okt 2023 pada 20.15
+-- Versi server: 10.4.11-MariaDB
+-- Versi PHP: 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -24,132 +25,132 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `movies`
+-- Struktur dari tabel `movies`
 --
 
 CREATE TABLE `movies` (
-  `id` bigint NOT NULL,
-  `user_id` int NOT NULL,
+  `id` bigint(20) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `judul` varchar(255) DEFAULT NULL,
-  `tahun` int DEFAULT NULL,
+  `tahun` int(11) DEFAULT NULL,
   `director` varchar(35) DEFAULT NULL,
   `genre` varchar(35) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `movies`
+-- Dumping data untuk tabel `movies`
 --
 
 INSERT INTO `movies` (`id`, `user_id`, `judul`, `tahun`, `director`, `genre`, `created_at`) VALUES
-(1, 1, 'Naik perahu', 2023, 'orang', 'gore', '2023-10-22 16:09:11');
+(1, 1, 'Cars', 2023, 'Human', 'Cartoon', '2023-10-25 18:02:45'),
+(2, 1, 'The Conjuring', 2020, 'Valak', 'Horor', '2023-10-25 18:04:57'),
+(3, 1, 'Naruto The Movie', 2012, 'Masashi Kishimoto', 'Anime, Adventure, Sci-fi', '2023-10-25 18:06:55'),
+(4, 2, 'Naruto The Last', 2018, 'Masashi Kishimoto', 'Anime, Adventure, Sci-fi', '2023-10-25 18:07:39'),
+(5, 2, 'The Avangers', 2019, 'Somebody', 'Adventure, Action', '2023-10-25 18:08:12'),
+(6, 2, 'Cars 2', 2020, 'Human', 'Adventure, Cartoon, Sports', '2023-10-25 18:08:49'),
+(7, 3, 'Cars 3', 2023, 'Human', 'Adventure, Cartoon, Sports', '2023-10-25 18:09:27'),
+(8, 3, 'Kucing dalam botol', 2021, 'Tom', 'Adventure, Cartoon', '2023-10-25 18:09:46'),
+(9, 3, 'Tikus dalam botol', 2021, 'Jerry', 'Adventure, Cartoon', '2023-10-25 18:10:41'),
+(10, 3, 'Botol dalam Botol', 2021, 'Tom & Jerry', 'Adventure, Cartoon', '2023-10-25 18:11:18');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tokens`
+-- Struktur dari tabel `tokens`
 --
 
 CREATE TABLE `tokens` (
-  `id` int NOT NULL,
-  `user_id` int NOT NULL,
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `jwt_token` text NOT NULL,
   `refresh_token` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tokens`
---
-
-INSERT INTO `tokens` (`id`, `user_id`, `jwt_token`, `refresh_token`, `created_at`) VALUES
-(28, 1, '0', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsIm5hbWUiOiIxMjMiLCJleHAiOjE2OTc5ODkzMDZ9.hMCerLOjqulW9cD_vCDG37bbhn-EfCbnA_XLWC17Tbw', '2023-10-22 15:40:46'),
-(29, 1, '0', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsIm5hbWUiOiIxMjMiLCJleHAiOjE2OTc5OTU1Mzh9.HBc19qCVoteOw-UAv686SEqxyWufmmyjpeY34KfKpig', '2023-10-22 15:45:38'),
-(30, 1, '0', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsIm5hbWUiOiIxMjMiLCJleHAiOjE2OTc5OTU3Mjh9.6__xgA010Y_6O1SUQ4wmsz98y7b6nM2LeYWo_x9ruXc', '2023-10-22 15:48:48'),
-(33, 2, '0', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsIm5hbWUiOiIxMjM0NSIsImV4cCI6MTY5Nzk5NjkxMn0.EiXl-QTmYP4eRLNLYMb1XFVqbfLbSnJjpeSCxx7aUN4', '2023-10-22 16:08:32'),
-(34, 2, '0', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsIm5hbWUiOiIxMjM0NSIsImV4cCI6MTY5Nzk5NzQyNn0.3cNPyxANv9UJ6oVaMFNDJPXWOdVio-jF7ZUn4Atl6Gc', '2023-10-22 16:17:06');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
-  `id` int NOT NULL,
-  `userid` int NOT NULL,
+  `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `roles` int NOT NULL
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id`, `userid`, `username`, `password`, `roles`) VALUES
-(1, 1, '123', '123', 10),
-(2, 2, '12345', '12345', 10);
+INSERT INTO `users` (`id`, `username`, `password`) VALUES
+(1, 'user1', 'user1'),
+(2, 'user2', 'user2'),
+(3, 'user3', 'user3');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `movies`
+-- Indeks untuk tabel `movies`
 --
 ALTER TABLE `movies`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `tokens`
+-- Indeks untuk tabel `tokens`
 --
 ALTER TABLE `tokens`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `movies`
+-- AUTO_INCREMENT untuk tabel `movies`
 --
 ALTER TABLE `movies`
-  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `tokens`
+-- AUTO_INCREMENT untuk tabel `tokens`
 --
 ALTER TABLE `tokens`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `tokens`
+-- Ketidakleluasaan untuk tabel `movies`
+--
+ALTER TABLE `movies`
+  ADD CONSTRAINT `movies_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Ketidakleluasaan untuk tabel `tokens`
 --
 ALTER TABLE `tokens`
   ADD CONSTRAINT `tokens_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
-
-ALTER TABLE `movies`
-  ADD CONSTRAINT `movies_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
