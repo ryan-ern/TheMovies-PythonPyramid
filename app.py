@@ -1,7 +1,6 @@
 from wsgiref.simple_server import make_server
 from pyramid.config import Configurator
 from pyramid.view import view_config
-from pyramid.authorization import ACLAuthorizationPolicy
 import pymysql
 import jwt
 import datetime
@@ -17,8 +16,8 @@ connection = pymysql.connect(
 )
 
 
-@view_config(route_name='root', renderer='json',  request_method="GET")
-def root(request):
+@view_config(route_name='index', renderer='json',  request_method="GET")
+def index(request):
     return {
         'message': 'Server Running!',
         'description': 'Hello World!'
@@ -243,7 +242,7 @@ if __name__ == "__main__":
     with Configurator() as config:
         config = Configurator(settings={'jwt.secret': 'secret'})
         # konfigurasi endpoint
-        config.add_route('root', '/')
+        config.add_route('index', '/')
         config.add_route('registrasi', '/register')
         config.add_route('login', '/login')
         config.add_route('logout', '/logout')

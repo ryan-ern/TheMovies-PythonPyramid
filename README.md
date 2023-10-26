@@ -6,6 +6,7 @@ Tugas 4  Pemrograman Web Lanjut
 - install library yang dibutuhkan dengan `pip install -r requirements.txt`
 - Import ke database anda
 - jalankan projek dengan `python app.py`
+- jalankan unit test dengan `python unittest.py`
 
 ## Alur Kerja Projek ini
 - project hanya dapat berjalan di `localhost:6543`
@@ -19,6 +20,15 @@ Tugas 4  Pemrograman Web Lanjut
 - user dapat menghapus data film berdasarkan id film dengan endpoint `delete`
 - user dapat logout dengan endpoint `logout` dimana Token pada database dan cookies akan dihapus secara permanen
 
+## Unit Test
+Menggunakan unittest dari library python dan pyramid, dimana unittest ini sudah terhubung langsung dengan database.
+<details>
+<summary>Hasil Unit Test</summary>
+
+![Root](doc/Unittest.png)
+
+</details>
+
 ## Ingin melihat hasilnya?
 - Jalankan projek dahulu, lalu
 [klik disini](https://www.postman.com/lunar-comet-757420/workspace/pwl-tugas-4/collection/30672519-de1b6f3a-45d6-4eea-a315-b69d810a6ae7?action=share&creator=30672519) untuk menggunakan postman atau bisa anda import dari file postman yang saya sediakan
@@ -28,7 +38,7 @@ Tugas 4  Pemrograman Web Lanjut
 <summary>Root</summary>
 Menggunakan method get tanpa form data, untuk mengecek apakah server dan API berjalan
 
-![Root](integration/Root.png)
+![Root](doc/Root.png)
 
 </details>
 
@@ -36,7 +46,7 @@ Menggunakan method get tanpa form data, untuk mengecek apakah server dan API ber
 <summary>Register</summary>
 Menggunakan method post dengan form data username dan password
 
-![Register](integration/Register.png)
+![Register](doc/Register.png)
 
 </details>
 
@@ -44,7 +54,7 @@ Menggunakan method post dengan form data username dan password
 <summary>Login</summary>
 Menggunakan method post dengan form data username dan password dan diberikan respon data berupa token untuk autentikasi JWT
 
-![Login](integration/Login.png)
+![Login](doc/Login.png)
 
 </details>
 
@@ -52,7 +62,7 @@ Menggunakan method post dengan form data username dan password dan diberikan res
 <summary>Home</summary>
 Menggunakan method get tanpa form data dan menghasilkan data list movie yang sudah pernah di input oleh user
 
-![Home](integration/Home.png)
+![Home](doc/Home.png)
 
 </details>
 
@@ -60,7 +70,7 @@ Menggunakan method get tanpa form data dan menghasilkan data list movie yang sud
 <summary>Create Data</summary>
 Menggunakan method post dengan form data judul, genre, tahun(int), director
 
-![Create](integration/Create.png)
+![Create](doc/Create.png)
 
 </details>
 
@@ -68,7 +78,7 @@ Menggunakan method post dengan form data judul, genre, tahun(int), director
 <summary>Update Data</summary>
 Menggunakan method put dengan form data id, judul, genre, tahun(int), director
 
-![Update](integration/Update.png)
+![Update](doc/Update.png)
 
 </details>
 
@@ -76,7 +86,7 @@ Menggunakan method put dengan form data id, judul, genre, tahun(int), director
 <summary>Delete Data</summary>
 Menggunakan method delete dengan form data id
 
-![Delete](integration/Delete.png)
+![Delete](doc/Delete.png)
 
 </details>
 
@@ -84,6 +94,6 @@ Menggunakan method delete dengan form data id
 <summary>Logout</summary>
 Menggunakan method delete tanpa form data
 
-![Logout](integration/Logout.png)
+![Logout](doc/Logout.png)
 
 </details>
