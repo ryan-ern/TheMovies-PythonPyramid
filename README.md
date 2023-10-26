@@ -7,7 +7,7 @@ Tugas 4  Pemrograman Web Lanjut
 - Import ke database anda menggunakan file `pyramid-themovies.sql`
 - jalankan projek dengan `python app.py`
 - gunakan postman dengan import file `The Movies API.postman_collection.json` atau request api sejenisnya
-- jalankan unit test dengan `python unittest.py`
+- jalankan unit test dengan `python test.py`
 
 ## Alur Kerja Projek ini
 - project hanya dapat berjalan di `localhost:6543`
