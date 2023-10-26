@@ -38,7 +38,7 @@ class TestAppViews(unittest.TestCase):
     # logout
     def test_logout_view(self):
         request = testing.DummyRequest(cookies={
-                                       'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEwLCJleHAiOjE2OTgyOTY2MTB9.cIWcBFZuko2ZC1Uqoakj0jM4y8BLtHhTnh4Z2yVsrG8'})
+                                       'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImV4cCI6MTY5ODMzNzcxMH0.znZWn5uW4ZX8pAfnm70ZruDWWfqPvq-FsDYjrjNDUfc'})
         response = logout(request)
         self.assertEqual(response['message'], 'ok')
         self.assertEqual(response['description'], 'Successfully logged out')
@@ -65,7 +65,7 @@ class TestAppViews(unittest.TestCase):
     # Home dengan auth
     def test_home_view_authenticated(self):
         request = testing.DummyRequest()
-        request.cookies['token'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEwLCJleHAiOjE2OTgyOTY2MTB9.cIWcBFZuko2ZC1Uqoakj0jM4y8BLtHhTnh4Z2yVsrG8'
+        request.cookies['token'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImV4cCI6MTY5ODMzNzcxMH0.znZWn5uW4ZX8pAfnm70ZruDWWfqPvq-FsDYjrjNDUfc'
         response = home(request)
         self.assertEqual(response['message'], 'ok')
         self.assertEqual(response['description'], 'Get data success!')
@@ -83,7 +83,7 @@ class TestAppViews(unittest.TestCase):
     def test_movie_create_view_authenticated(self):
         request = testing.DummyRequest(
             post={'judul': 'Test Movie', 'genre': 'Action', 'tahun': '2023', 'director': 'Director Name'})
-        request.cookies['token'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEwLCJleHAiOjE2OTgyOTY2MTB9.cIWcBFZuko2ZC1Uqoakj0jM4y8BLtHhTnh4Z2yVsrG8'
+        request.cookies['token'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImV4cCI6MTY5ODMzNzcxMH0.znZWn5uW4ZX8pAfnm70ZruDWWfqPvq-FsDYjrjNDUfc'
         response = movie_create(request)
         self.assertEqual(response['message'], 'ok')
         self.assertEqual(response['description'], 'berhasil buat data')
@@ -93,7 +93,7 @@ class TestAppViews(unittest.TestCase):
     def test_movie_update_view_authenticated(self):
         request = testing.DummyRequest(
             post={'id': '1', 'judul': 'Updated Movie', 'genre': 'Sci-Fi', 'tahun': '2022', 'director': 'New Director Name'})
-        request.cookies['token'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEwLCJleHAiOjE2OTgyOTY2MTB9.cIWcBFZuko2ZC1Uqoakj0jM4y8BLtHhTnh4Z2yVsrG8'
+        request.cookies['token'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImV4cCI6MTY5ODMzNzcxMH0.znZWn5uW4ZX8pAfnm70ZruDWWfqPvq-FsDYjrjNDUfc'
         response = movie_update(request)
         self.assertEqual(response['message'], 'ok')
         self.assertEqual(response['description'], 'berhasil perbarui data')
@@ -103,7 +103,7 @@ class TestAppViews(unittest.TestCase):
     def test_movie_delete_view_authenticated(self):
         request = testing.DummyRequest(
             post={'id': '1'})
-        request.cookies['token'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEwLCJleHAiOjE2OTgyOTY2MTB9.cIWcBFZuko2ZC1Uqoakj0jM4y8BLtHhTnh4Z2yVsrG8'
+        request.cookies['token'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImV4cCI6MTY5ODMzNzcxMH0.znZWn5uW4ZX8pAfnm70ZruDWWfqPvq-FsDYjrjNDUfc'
         response = movie_delete(request)
         self.assertEqual(response['message'], 'ok')
         self.assertEqual(response['description'], 'hapus data berhasil')
