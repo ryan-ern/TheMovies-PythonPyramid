@@ -4,8 +4,9 @@ Tugas 4  Pemrograman Web Lanjut
 ## Cara Menggunakan Project ini
 - install pip, python dan mysql terlebih dahulu
 - install library yang dibutuhkan dengan `pip install -r requirements.txt`
-- Import ke database anda
+- Import ke database anda menggunakan file `pyramid-themovies.sql`
 - jalankan projek dengan `python app.py`
+- gunakan postman dengan import file `The Movies API.postman_collection.json` atau request api sejenisnya
 - jalankan unit test dengan `python unittest.py`
 
 ## Alur Kerja Projek ini
